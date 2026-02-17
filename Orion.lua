@@ -1,3 +1,7 @@
+-- orion lib
+-- copy if you want
+-- join: discord.gg/3rw4DTKPCE
+
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -23,7 +27,7 @@ local Library = {
 	SelectedTheme = "Default",
 	Folder = nil,
 	SaveCfg = false,
-	Font = Enum.Font.GothamBold
+	Font = Enum.Font.FredokaOne
 }
 
 local function GetIcon(IconName)
@@ -390,14 +394,13 @@ CreateElement("Label", function(Text, TextSize, Transparency)
 		TextColor3 = Color3.fromRGB(240, 240, 240),
 		TextTransparency = Transparency or 0,
 		TextSize = TextSize or 15,
-		Font = Library.Font,
+		Font = Enum.Font.GothamSemibold,
 		RichText = true,
 		BackgroundTransparency = 1,
 		TextXAlignment = Enum.TextXAlignment.Left
 	})
 	return Label
 end)
-
 
 local NotificationHolder = SetProps(SetChildren(MakeElement("TFrame"), {
 	SetProps(MakeElement("List"), {
@@ -501,7 +504,7 @@ function Library:MakeWindow(WindowConfig)
 		WindowConfig.IntroEnabled = true
 	end
 	WindowConfig.IntroToggleIcon = WindowConfig.IntroToggleIcon or "rbxassetid://8834748103"
-	WindowConfig.IntroText = WindowConfig.IntroText or "Starting VantaScripts..."
+	WindowConfig.IntroText = WindowConfig.IntroText or "Starting VantaScripts"
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
@@ -515,10 +518,9 @@ function Library:MakeWindow(WindowConfig)
 		end	
 	end
 
-local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
-    Size = UDim2.new(1, 0, 1, -50),
-    BackgroundTransparency = 1 -- Hier Transparenz erzwingen
-}), {
+	local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
+		Size = UDim2.new(1, 0, 1, -50)
+	}), {
 		MakeElement("List"),
 		MakeElement("Padding", 8, 0, 0, 8)
 	}), "Divider")
@@ -565,11 +567,10 @@ local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 		Size = UDim2.new(1, 0, 0, 50)
 	})
 
-local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-    Size = UDim2.new(0, 150, 1, -50),
-    Position = UDim2.new(0, 0, 0, 50),
-    BackgroundTransparency = 0.5 
-}), {
+	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
+		Size = UDim2.new(0, 150, 1, -50),
+		Position = UDim2.new(0, 0, 0, 50)
+	}), {
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(1, 0, 0, 10),
 			Position = UDim2.new(0, 0, 0, 0)
@@ -638,11 +639,11 @@ local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame"
 	}), "Stroke")
 
 	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-Parent = Container,
-    Position = UDim2.new(0.5, -307, 0.5, -172),
-    Size = UDim2.new(0, 615, 0, 344),
-    ClipsDescendants = true,
-    BackgroundTransparency = 0.4
+		Parent = Container,
+		Position = UDim2.new(0.5, -307, 0.5, -172),
+		Size = UDim2.new(0, 615, 0, 344),
+		ClipsDescendants = true,
+        BackgroundTransparency = 0.2
 	}), {
 		SetChildren(SetProps(MakeElement("TFrame"), {
 			Size = UDim2.new(1, 0, 0, 50),
@@ -790,11 +791,10 @@ MakeResizable(ResizeBtn, MainWindow, Vector2.new(400, 250), Vector2.new(1200, 80
 		TabConfig.Icon = TabConfig.Icon or ""
 		TabConfig.PremiumOnly = TabConfig.PremiumOnly or false
 
-local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
-    Size = UDim2.new(1, 0, 0, 30),
-    Parent = TabHolder,
-    BackgroundTransparency = 1
-}), {
+		local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
+			Size = UDim2.new(1, 0, 0, 30),
+			Parent = TabHolder
+		}), {
 			AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
 				AnchorPoint = Vector2.new(0, 0.5),
 				Size = UDim2.new(0, 18, 0, 18),
@@ -835,8 +835,8 @@ local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
 			TabFrame.Ico.ImageTransparency = 0
 			TabFrame.Title.TextTransparency = 0
 			TabFrame.Title.Font = Enum.Font.GothamBlack
-			TabFrame.Ico.ImageColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
-			TabFrame.Title.TextColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
+			TabFrame.Ico.ImageColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
+			TabFrame.Title.TextColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
 			Container.Visible = true
 		end
 
@@ -861,11 +861,11 @@ local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
 			end  
 			TweenService:Create(TabFrame.Ico, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
 				ImageTransparency = 0, 
-				ImageColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
+				ImageColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
 			}):Play()
 			TweenService:Create(TabFrame.Title, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
 				TextTransparency = 0, 
-				TextColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
+				TextColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
 			}):Play()
 			TabFrame.Title.Font = Enum.Font.GothamBlack
 			Container.Visible = true   
