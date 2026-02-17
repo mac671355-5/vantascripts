@@ -553,6 +553,27 @@ function Library:MakeWindow(WindowConfig)
 		}), "Text")
 	})
 
+local SettingsBtn = Create("ImageButton", {
+    Name = "SettingsBtn",
+    Parent = TitleBar,
+    BackgroundTransparency = 1,
+    Position = UDim2.new(1, -65, 0.5, -10),
+    Size = UDim2.new(0, 20, 0, 20),
+    Image = "rbxassetid://6031289124",
+    ImageColor3 = Color3.fromRGB(240, 240, 245)
+})
+
+SettingsBtn.MouseButton1Click:Connect(function()
+    print("Settings Panel geöffnet")
+end)
+
+function Library:ResizeWindow(Scale)
+    local BaseSize = Vector2.new(615, 344)
+    if MainWindow then
+        MainWindow.Size = UDim2.new(0, BaseSize.X * Scale, 0, BaseSize.Y * Scale)
+    end
+end
+
 local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 	Size = UDim2.new(0.33, 0, 1, 0),
 	Position = UDim2.new(0, 0, 0, 0),
