@@ -1,7 +1,3 @@
--- orion lib
--- copy if you want
--- join: discord.gg/3rw4DTKPCE
-
 local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local RunService = game:GetService("RunService")
@@ -497,7 +493,7 @@ function Library:MakeWindow(WindowConfig)
 	local UIHidden = false
 
 	WindowConfig = WindowConfig or {}
-	WindowConfig.Name = WindowConfig.Name or "Zyney"
+	WindowConfig.Name = WindowConfig.Name or "VantaScripts"
 	WindowConfig.ConfigFolder = WindowConfig.ConfigFolder or WindowConfig.Name
 	WindowConfig.SaveConfig = WindowConfig.SaveConfig or false
 	WindowConfig.HidePremium = WindowConfig.HidePremium or false
@@ -505,7 +501,7 @@ function Library:MakeWindow(WindowConfig)
 		WindowConfig.IntroEnabled = true
 	end
 	WindowConfig.IntroToggleIcon = WindowConfig.IntroToggleIcon or "rbxassetid://8834748103"
-	WindowConfig.IntroText = WindowConfig.IntroText or "Starting Zyney"
+	WindowConfig.IntroText = WindowConfig.IntroText or "Starting VantaScripts..."
 	WindowConfig.CloseCallback = WindowConfig.CloseCallback or function() end
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
@@ -553,27 +549,6 @@ function Library:MakeWindow(WindowConfig)
 		}), "Text")
 	})
 
-local SettingsBtn = Create("ImageButton", {
-    Name = "SettingsBtn",
-    Parent = TitleBar,
-    BackgroundTransparency = 1,
-    Position = UDim2.new(1, -65, 0.5, -10),
-    Size = UDim2.new(0, 20, 0, 20),
-    Image = "rbxassetid://6031289124",
-    ImageColor3 = Color3.fromRGB(240, 240, 245)
-})
-
-SettingsBtn.MouseButton1Click:Connect(function()
-    print("Settings Panel geöffnet")
-end)
-
-function Library:ResizeWindow(Scale)
-    local BaseSize = Vector2.new(615, 344)
-    if MainWindow then
-        MainWindow.Size = UDim2.new(0, BaseSize.X * Scale, 0, BaseSize.Y * Scale)
-    end
-end
-
 local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 	Size = UDim2.new(0.33, 0, 1, 0),
 	Position = UDim2.new(0, 0, 0, 0),
@@ -589,10 +564,11 @@ local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 		Size = UDim2.new(1, 0, 0, 50)
 	})
 
-	local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-		Size = UDim2.new(0, 150, 1, -50),
-		Position = UDim2.new(0, 0, 0, 50)
-	}), {
+local WindowStuff = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
+    Size = UDim2.new(0, 150, 1, -50),
+    Position = UDim2.new(0, 0, 0, 50),
+    BackgroundTransparency = 0.5 
+}), {
 		AddThemeObject(SetProps(MakeElement("Frame"), {
 			Size = UDim2.new(1, 0, 0, 10),
 			Position = UDim2.new(0, 0, 0, 0)
@@ -634,7 +610,7 @@ local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 				AddThemeObject(MakeElement("Stroke"), "Stroke"),
 				MakeElement("Corner", 1)
 			}),
-			AddThemeObject(SetProps(MakeElement("Label", "Zyney", WindowConfig.HidePremium and 14 or 13), {
+			AddThemeObject(SetProps(MakeElement("Label", "VantaScripts", WindowConfig.HidePremium and 14 or 13), {
 				Size = UDim2.new(1, -60, 0, 13),
 				Position = WindowConfig.HidePremium and UDim2.new(0, 50, 0, 19) or UDim2.new(0, 50, 0, 12),
 				Font = Enum.Font.FredokaOne,
@@ -661,11 +637,11 @@ local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 	}), "Stroke")
 
 	local MainWindow = AddThemeObject(SetChildren(SetProps(MakeElement("RoundFrame", Color3.fromRGB(255, 255, 255), 0, 10), {
-		Parent = Container,
-		Position = UDim2.new(0.5, -307, 0.5, -172),
-		Size = UDim2.new(0, 615, 0, 344),
-		ClipsDescendants = true,
-        BackgroundTransparency = 0.1
+Parent = Container,
+    Position = UDim2.new(0.5, -307, 0.5, -172),
+    Size = UDim2.new(0, 615, 0, 344),
+    ClipsDescendants = true,
+    BackgroundTransparency = 0.4
 	}), {
 		SetChildren(SetProps(MakeElement("TFrame"), {
 			Size = UDim2.new(1, 0, 0, 50),
