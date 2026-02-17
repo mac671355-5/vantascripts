@@ -515,9 +515,10 @@ function Library:MakeWindow(WindowConfig)
 		end	
 	end
 
-	local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
-		Size = UDim2.new(1, 0, 1, -50)
-	}), {
+local TabHolder = AddThemeObject(SetChildren(SetProps(MakeElement("ScrollFrame", Color3.fromRGB(255, 255, 255), 4), {
+    Size = UDim2.new(1, 0, 1, -50),
+    BackgroundTransparency = 1 -- Hier Transparenz erzwingen
+}), {
 		MakeElement("List"),
 		MakeElement("Padding", 8, 0, 0, 8)
 	}), "Divider")
@@ -789,10 +790,11 @@ MakeResizable(ResizeBtn, MainWindow, Vector2.new(400, 250), Vector2.new(1200, 80
 		TabConfig.Icon = TabConfig.Icon or ""
 		TabConfig.PremiumOnly = TabConfig.PremiumOnly or false
 
-		local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
-			Size = UDim2.new(1, 0, 0, 30),
-			Parent = TabHolder
-		}), {
+local TabFrame = SetChildren(SetProps(MakeElement("Button"), {
+    Size = UDim2.new(1, 0, 0, 30),
+    Parent = TabHolder,
+    BackgroundTransparency = 1
+}), {
 			AddThemeObject(SetProps(MakeElement("Image", TabConfig.Icon), {
 				AnchorPoint = Vector2.new(0, 0.5),
 				Size = UDim2.new(0, 18, 0, 18),
@@ -833,8 +835,8 @@ MakeResizable(ResizeBtn, MainWindow, Vector2.new(400, 250), Vector2.new(1200, 80
 			TabFrame.Ico.ImageTransparency = 0
 			TabFrame.Title.TextTransparency = 0
 			TabFrame.Title.Font = Enum.Font.GothamBlack
-			TabFrame.Ico.ImageColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
-			TabFrame.Title.TextColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
+			TabFrame.Ico.ImageColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
+			TabFrame.Title.TextColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
 			Container.Visible = true
 		end
 
@@ -859,11 +861,11 @@ MakeResizable(ResizeBtn, MainWindow, Vector2.new(400, 250), Vector2.new(1200, 80
 			end  
 			TweenService:Create(TabFrame.Ico, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
 				ImageTransparency = 0, 
-				ImageColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
+				ImageColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
 			}):Play()
 			TweenService:Create(TabFrame.Title, TweenInfo.new(0.25, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {
 				TextTransparency = 0, 
-				TextColor3 = Color3.fromRGB(65, 105, 225) -- Dunkleres Blau
+				TextColor3 = Color3.fromRGB(0, 170, 255) -- Dunkleres Blau
 			}):Play()
 			TabFrame.Title.Font = Enum.Font.GothamBlack
 			Container.Visible = true   
