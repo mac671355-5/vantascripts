@@ -27,7 +27,7 @@ local Library = {
 	SelectedTheme = "Default",
 	Folder = nil,
 	SaveCfg = false,
-	Font = Enum.Font.FredokaOne
+	Font = Enum.Font.Gotham
 }
 
 local function GetIcon(IconName)
@@ -642,8 +642,7 @@ local ResizeBtn = SetChildren(SetProps(MakeElement("Button"), {
 		Parent = Container,
 		Position = UDim2.new(0.5, -307, 0.5, -172),
 		Size = UDim2.new(0, 615, 0, 344),
-		ClipsDescendants = true,
-        BackgroundTransparency = 0.2
+		ClipsDescendants = true
 	}), {
 		SetChildren(SetProps(MakeElement("TFrame"), {
 			Size = UDim2.new(1, 0, 0, 50),
